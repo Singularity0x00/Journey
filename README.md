@@ -1,7 +1,8 @@
-# Journey
+<h1 align=center>Journey</h1>
 <p align=center>
   <img src="https://img.shields.io/badge/OS-linux-orange.svg?style=flat-square">
 </p>
+
 >  Persist
 
 Track Days automatically for `X` days of `Y` challenges
