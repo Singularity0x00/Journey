@@ -1,0 +1,157 @@
+#! /bin/bash
+
+set_config() {
+    start_date=$(date +%s)
+    echo -e "TARGET="$days"\nCHALLENGE='$goal'\nSTART_DATE="$start_date"" > $HOME/.config/countdown/countdown.conf
+}
+
+# CONF CHECK
+if [[ ! -d $HOME/.config/countdown/ ]] ; then
+    mkdir -p $HOME/.config/countdown/
+fi
+
+if [[ ! -f $HOME/.config/countdown/countdown.conf ]] ; then
+    touch $HOME/.config/countdown/countdown.conf
+    if [ -z "$1" ]; then
+         days=$(gum input --placeholder "Enter duration in days ")
+    # printf "Enter duration in days:  "
+    # read days
+        else
+            days=$1
+        fi
+
+    if [ -z "$2" ]; then 
+         goal=$(gum input --placeholder "Enter your challenge or goal ")
+         # printf "Enter challenge/goal: "
+         # read goal
+        else
+            goal="$2"
+        fi
+
+        gum spin --spinner line --title "Quest created..." -- sleep 2 
+        set_config
+fi
+
+#CONF lOAD
+. $HOME/.config/countdown/countdown.conf
+
+# lOGIC TO CALCULATE DAYS BASED ON END_DATE
+# now=$(date +%j)
+# target=$(date -d "$t_date" +%j)
+#
+# days=$(($target - $now))
+#
+# echo $days
+
+# lOGIC TO CALCULATE DATE BASED ON NUMBER OF DAYS
+now=$(date +%s)
+#echo "Today is $(date --date=@"$now" "+%A, %d %b %Y")"
+
+seconds=$(( $TARGET * 24 * 60 * 60 ))
+
+date_in_unix=$(( $now + $seconds ))
+end_date=$(date --date=@"$date_in_unix" "+%A, %d %b %Y")
+#echo "End date $end_date"
+
+nday=$(( ($now - $START_DATE) / 86400 + 1 ))
+#echo -e "DAY $nday/$TARGET of $CHALLENGE"
+start_date_fmt=$(date -d "@$START_DATE" "+%A, %d %b %Y")
+#echo $start_date_fmt
+
+#percent=$(( $nday * 100 / $TARGET  ))
+
+# TRACKER OUTPUT 
+if [[ -f $HOME/.cache/wal/colors ]]; then
+    color1=$(sed -n '1p' $HOME/.cache/wal/colors)
+    color2=$(sed -n '2p' $HOME/.cache/wal/colors)
+    color3=$(sed -n '3p' $HOME/.cache/wal/colors)
+    color4=$(sed -n '4p' $HOME/.cache/wal/colors)
+    color5=$(sed -n '5p' $HOME/.cache/wal/colors)
+    color6=$(sed -n '6p' $HOME/.cache/wal/colors)
+    color7=$(sed -n '7p' $HOME/.cache/wal/colors)
+    color8=$(sed -n '8p' $HOME/.cache/wal/colors)
+    color9=$(sed -n '9p' $HOME/.cache/wal/colors)
+    color10=$(sed -n '10p' $HOME/.cache/wal/colors)
+    color11=$(sed -n '11p' $HOME/.cache/wal/colors)
+    color12=$(sed -n '12p' $HOME/.cache/wal/colors)
+    color13=$(sed -n '13p' $HOME/.cache/wal/colors)
+    color14=$(sed -n '14p' $HOME/.cache/wal/colors)
+    color15=$(sed -n '15p' $HOME/.cache/wal/colors)
+    color16=$(sed -n '16p' $HOME/.cache/wal/colors)
+fi
+
+print_wal() {
+    X=$(gum style \
+      --border rounded \
+      --foreground "$color2" \
+      --background "$color1" \
+      --border-foreground "$color3" \
+      --padding "1 9" \
+     --bold <<EOF
+       DAY ${nday}/${TARGET}   
+       ${CHALLENGE}
+EOF
+  )
+    Y=$(gum style \
+      --border none \
+      --foreground "$color3" \
+      --background "$color1" \
+      --border-foreground "$color2" \
+      --padding "1 9" \
+       <<EOF 
+Started: ${start_date_fmt}
+Ends:    ${end_date}               
+EOF
+ )
+ gum join "$X""$Y"
+}
+
+print_default() {
+    X=$(gum style \
+      --border rounded \
+      --foreground "#f38ba8" \
+      --border-foreground "#7287fd" \
+      --padding "1 9" \
+     --bold <<EOF
+       DAY ${nday}/${TARGET}   
+       ${CHALLENGE}
+EOF
+  )
+    Y=$(gum style \
+      --border none \
+      --foreground "#7287fd" \
+      --border-foreground "#f38ba8" \
+      --padding "1 9" <<EOF 
+Started: ${start_date_fmt}
+Ends:    ${end_date}               
+EOF
+)
+ gum join "$X""$Y"
+}
+
+usage() {
+	echo "USAGE: "
+    echo "countdown <days> <challenge> or simply countdown"
+	echo "-h Display this help  "
+	echo "-o Show tracker"
+}
+
+options() {
+while getopts "oh:" flag
+do
+    case "$flag" in 
+	o) 	
+        if [[ -f $HOME/.cache/wal/colors ]]; then
+            print_wal 
+        else 
+            print_default
+        fi ;;
+        
+    h) 
+        usage && exit 1 ;;
+    esac
+done
+}
+
+options "$@"
+
