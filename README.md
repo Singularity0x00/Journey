@@ -1,10 +1,10 @@
 # Journey
 
-> [!QUOTE] Persist
+>  Persist
 
 Track Days automatically for `X` days of `Y` challenges
 
-> [!IMPORTANT] Make sure to install dependencies
+>  Make sure to install dependencies
 > install `gum` "https://github.com/charmbracelet/gum?tab=readme-ov-file#installation"
 
 ## Installation
@@ -37,7 +37,7 @@ This will create a config file at `$HOME/.config/countdown/`
 journey -o
 ```
 
-> [!TIP] Add `journey -o` to shell config like `.bashrc` or `config.fish` to show tracker whenever terminal opens.
+> Add `journey -o` to shell config like `.bashrc` or `config.fish` to show tracker whenever terminal opens.
 
 ### Customisation
 
