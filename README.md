@@ -3,13 +3,13 @@
   <img src="https://img.shields.io/badge/OS-linux-orange.svg?style=flat-square">
 </p>
 
->  Persist
+> Persist
 
-![journey](https://github.com/user-attachments/assets/1943436e-c89a-4a41-b056-d6a7686ce5a0)
+![journey](https://github.com/user-attachments/assets/d63d0dc5-8af0-4039-b98c-470af661ee02)
 
 Track Days automatically for `X` days of `Y` challenges
 
->  Make sure to install dependencies
+> Make sure to install dependencies
 > install `gum` "https://github.com/charmbracelet/gum?tab=readme-ov-file#installation"
 
 ## Installation
