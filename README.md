@@ -5,6 +5,8 @@
 
 >  Persist
 
+![journey](https://github.com/user-attachments/assets/1943436e-c89a-4a41-b056-d6a7686ce5a0)
+
 Track Days automatically for `X` days of `Y` challenges
 
 >  Make sure to install dependencies
