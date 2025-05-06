@@ -68,7 +68,8 @@ Set TypingSpeed 100ms
 
 Type "journey" Sleep 500ms  Enter
 Type "1001" Sleep 800ms  Enter
-Type "Web3 Security Grind" Sleep 800ms  Enter
+Type "Web3 Security Grind"  Enter
+Sleep 3s
 Type "journey -o" Sleep 800ms  Enter
 
 Sleep 3s
