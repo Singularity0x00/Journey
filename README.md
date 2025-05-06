@@ -1,9 +1,7 @@
 <h1 align=center>Journey</h1>
 <p align=center>
   <img src="https://img.shields.io/badge/OS-linux-orange.svg?style=flat-square">
-</p>
-<p align=center>
-<img src="https://img.shields.io/badge/Shell_Script-121011?style=for-the-badge&logo=gnu-bash&logoColor=white">
+  <img src="https://img.shields.io/badge/Shell_Script-121011?style=for-the-badge&logo=gnu-bash&logoColor=white">
 </p>
 
 > Persist
