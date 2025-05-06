@@ -1,13 +1,13 @@
 #! /bin/bash
 
 # CHECKING FOR DEPEDENCIES
-printf "Checking dependencies.... "
+# printf "Checking dependencies.... "
 dependencies=( "gum" "date" "sed" )
 for d in "${dependencies[@]}"
 do
     [[ $(command -v "$d" 2>/dev/null) ]] || { echo -en "\n$d needs to be installed.";deps=1; }
 done
-[[ $deps -ne 1 ]] && echo "OK" || { echo -en "\nInstall dependencies for 100x better luck.\n";exit 1; }
+[[ $deps -ne 1 ]] && echo " " || { echo -en "\nInstall dependencies for 100x better luck.\n";exit 1; }
 
 # CONF SET
 set_config() {
