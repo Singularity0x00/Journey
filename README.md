@@ -5,7 +5,7 @@
 
 >  Persist
 
-![journey](https://github.com/user-attachments/assets/1943436e-c89a-4a41-b056-d6a7686ce5a0)
+![journey](https://github.com/user-attachments/assets/d63d0dc5-8af0-4039-b98c-470af661ee02)
 
 Track Days automatically for `X` days of `Y` challenges
 
