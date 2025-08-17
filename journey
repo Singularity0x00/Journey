@@ -147,7 +147,7 @@ usage() {
 }
 
 options() {
-while getopts "oh:" flag
+while getopts "oh;" flag
 do
     case "$flag" in 
 	o) 	
@@ -157,7 +157,7 @@ do
             print_default
         fi ;;
     h) 
-        usage && exit 1 ;;
+        usage ;;
     esac
 done
 }
