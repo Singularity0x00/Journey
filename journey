@@ -156,7 +156,6 @@ do
         else 
             print_default
         fi ;;
-        
     h) 
         usage && exit 1 ;;
     esac
