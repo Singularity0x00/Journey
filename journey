@@ -141,7 +141,7 @@ EOF
 
 usage() {
 	echo "USAGE: "
-    echo "countdown <days> <challenge> or simply countdown"
+    echo "journey <days> <challenge> or simply journey"
 	echo "-h Display this help  "
 	echo "-o Show tracker"
 }
